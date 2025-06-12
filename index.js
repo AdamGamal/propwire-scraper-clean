@@ -1,7 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const puppeteer = require("puppeteer"); // ✅ DO NOT use puppeteer-core
-
+const puppeteer = require("puppeteer");
 
 const app = express();
 const port = process.env.PORT || 10000;
@@ -20,9 +19,8 @@ app.post("/", async (req, res) => {
     const url = `https://propwire.com/realestate/${formattedStreet}-${city}-${state}-${zip}/owner-details?filters=%7B%7D`;
 
     const browser = await puppeteer.launch({
-      headless: true,
+      headless: "new", // Use the new headless mode as recommended
       args: [
-
         "--no-sandbox",
         "--disable-setuid-sandbox",
         "--disable-dev-shm-usage",
