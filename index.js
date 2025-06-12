@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const puppeteer = require("puppeteer");
+const puppeteer = require("puppeteer"); // ✅ DO NOT use puppeteer-core
+
 
 const app = express();
 const port = process.env.PORT || 10000;
